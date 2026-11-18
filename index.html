@@ -102,10 +102,11 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-wid
 </section>
 
 <section id="films">
-  <h2>The two films</h2>
+  <h2>The films</h2>
   <div class="grid2">
     <figure><video controls playsinline preload="metadata" poster="img/hero.jpg?v=2" src="media/demo.mp4?v=4"></video><figcaption>In use, 60 seconds, with sound: squeeze, tell, see the dream.</figcaption></figure>
     <figure><video controls playsinline preload="metadata" poster="img/exploded.jpg?v=2" src="media/tech.mp4?v=4"></video><figcaption>Technical breakdown, 64 seconds, with sound: the centre taken apart.</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="img/assembly.jpg?v=1" src="media/assembly.mp4?v=1"></video><figcaption>Assembly, 42 seconds, with sound: how the woven part and the electronics fit together.</figcaption></figure>
   </div>
 </section>
 
@@ -136,7 +137,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-wid
     <tr><td>Moving pictures</td><td>Low-refresh animation: a new frame every few seconds, as e-paper allows.</td><td class="s"><i class="chip dec">Decided</i></td></tr>
     <tr><td>Hoop and web</td><td>Bent-wood hoop wrapped in suede lace, tied off at the top with a hanging loop. Waxed-thread web of seven rounds, slightly irregular as hand weaving is.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
     <tr><td>Ornament</td><td>Seven feathered laces with down plumes at the bindings, eight plain suede fringe laces, a small second hoop at the bottom centre, side clusters at 3 and 9 o'clock. Beads in turquoise, amber, amethyst, pearl, brass, wood and bone hairpipe; two conchos, crystal drops.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
-    <tr><td>Hub</td><td>Dark wood housing 86 mm across and 13 mm deep behind a brass bezel, holding the screen, board and battery.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+    <tr><td>Hub</td><td>A separate 3D-printed electronics module, with its own lights and solar charms, held in a metal weaving ring at the centre of the web. See <a href="#assembly">Two-part construction</a>.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
     <tr><td>Charge life</td><td>About 2–3 months between charges at one dream a day. See the power budget below.</td><td class="s"><i class="chip est">Estimate</i></td></tr>
   </table></div>
 </section>
@@ -151,10 +152,10 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-wid
     <tr><td>ESP32</td><td>Runs everything. Joins home Wi-Fi to send the recording and fetch the picture. On first use it broadcasts its own network; you join it from your phone and a setup page opens.</td><td>ESP32-S3 module</td></tr>
     <tr><td>Microphone</td><td>Records your description after a squeeze, for a set time or until you squeeze again.</td><td>Digital MEMS microphone</td></tr>
     <tr><td>Squeeze sensors</td><td>Each bulb's tube ends at an air-pressure sensor on the board. A squeeze raises the pressure and wakes the controller. No wiring runs down to the bulbs.</td><td>Two small pressure sensors</td></tr>
-    <tr><td>Web LEDs</td><td>Glow while listening, pulse off when done.</td><td>Eight small RGB LEDs on fine wire</td></tr>
+    <tr><td>LEDs</td><td>Glow while listening, pulse off when done. They come with the module on long, thin wires and clip onto the web threads wherever the weaver likes.</td><td>16 small RGB LEDs in clip-on pods</td></tr>
     <tr><td>Battery</td><td>Powers the device between charges.</td><td>Lithium-polymer cell, about 800 mAh</td></tr>
     <tr><td>USB-C</td><td>Main charging route, on the lower edge of the hub.</td><td>USB-C socket with charge controller</td></tr>
-    <tr><td>Solar charms</td><td>Four small panels among the feathers trickle-charge the battery.</td><td>Four cells of about 20 × 30 mm</td></tr>
+    <tr><td>Solar charms</td><td>Four small panels among the feathers trickle-charge the battery. They are wired to the module and come with it.</td><td>Four cells of about 20 × 30 mm</td></tr>
     <tr><td>Dream service</td><td>Turns speech into text, compares it with your earlier dreams, and draws the picture in the chosen style. This runs online, not on the device.</td><td>Speech-to-text, a text-similarity check, an image model</td></tr>
   </table></div>
 
@@ -188,6 +189,25 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-wid
     <li><b>The picture is made online.</b> The ESP32 cannot transcribe speech or draw. That means Wi-Fi, a running cost per dream, and spoken dreams leaving the house. Buyers will ask about privacy; the answer needs deciding.</li>
     <li><b>Recognising a repeated dream is a judgement call.</b> The service needs a threshold for "the same dream", and a way for the owner to say it got it wrong.</li>
   </ul>
+</section>
+
+<section id="assembly">
+  <h2>Two-part construction</h2>
+  <p>The Dreamkeeper is split between two makers. A weaver makes the dreamcatcher around a standard metal ring with eyelets, and ties the web to it however they like. The electronics are a separate 3D-printed kit that fits that ring: the module with the screen, controller and battery, plus 16 lights and four solar charms on long wires. Because the ring's size is fixed, any weaver's dreamcatcher takes the same module, and the weaver never handles electronics.</p>
+  <figure><img src="img/assembly.jpg?v=1" alt="Back view: the electronics module held in the brass weaving ring by a screwed-on lock ring, with copper wires running from its back to lights clipped on the web."><figcaption>From behind: the lock ring screwed on, and the light wires running out to the web.</figcaption></figure>
+  <div class="tablewrap"><table>
+    <tr><th>Part</th><th>Made by</th><th>Specification</th><th>Status</th></tr>
+    <tr><td>Weaving ring</td><td>Supplied to the weaver</td><td>The idea: a ring with eyelets that the web is tied to, leaving the centre open.</td><td class="s"><i class="chip dec">Decided</i></td></tr>
+    <tr><td>Ring size</td><td></td><td>Brass, 86 mm inside, 104 mm outside, 2 mm thick, 16 eyelets of 3 mm on a 97 mm circle (one per web thread). A notch at the top of the inner edge.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+    <tr><td>Electronics module</td><td>3D printed</td><td>Front flange 93 mm across, stopping short of the eyelets so it doesn't crush the ties. Holds the lens and screen. A threaded barrel 84 mm across and 15 mm long passes through the ring and holds the board and battery. The back is sealed, with the USB-C port, a wire exit and two tube nozzles.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+    <tr><td>Screw lock</td><td>3D printed</td><td>The idea: a part screwed on from behind that locks the two together.</td><td class="s"><i class="chip dec">Decided</i></td></tr>
+    <tr><td>Lock ring design</td><td></td><td>An open, ridged ring that screws onto the barrel and clamps the woven ring against the front flange. Because it turns around the barrel, the wires leaving the back don't twist.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+    <tr><td>Alignment</td><td></td><td>A small key on the barrel drops into the ring's notch, so the picture stays upright while the lock ring is tightened.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+    <tr><td>Lights and charms</td><td>Part of the electronics kit</td><td>The idea: 16 LEDs (8 would also work) and four solar charms, each on a wire long enough to reach its place on the dreamcatcher.</td><td class="s"><i class="chip dec">Decided</i></td></tr>
+    <tr><td>Fixing them</td><td></td><td>Each LED sits in a small clip-on pod that grips a web thread. The wires run along the back of the threads to the wire exit. The charms hang among the feathers on their own cords.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+    <tr><td>Air tubes</td><td></td><td>The two squeeze-bulb tubes push onto nozzles on the module's back. To take the kit out: pull off the tubes, unclip the lights and charms, unscrew the lock ring.</td><td class="s"><i class="chip pro">Proposal</i></td></tr>
+  </table></div>
+  <p class="muted">Untested points: whether a printed thread this size is strong and smooth enough (a heat-set or moulded thread may be needed), how thick the tied threads around the ring end up and so how much clamping gap to allow, and whether the brass ring needs a coating so it doesn't tarnish where the thread rubs.</p>
 </section>
 
 <section>
